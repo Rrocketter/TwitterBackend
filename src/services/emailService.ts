@@ -1,8 +1,10 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { error } from 'console';
+import { send } from 'process';
 require('dotenv').config()
 
-const ses = new SESClient({});
+//const ses = new SESClient({});
+const ses = new SESClient({ region: 'us-east-2' }); 
 
 function createSendEmailCommand(
   toAddress: string,
@@ -46,3 +48,5 @@ export async function sendEmailToken(email: string, token: string) {
     return error;
   }
 }
+
+//sendEmailToken("ragupta@ctemc.org","test")

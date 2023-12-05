@@ -32,12 +32,11 @@ model Token {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  type String //EMAIL & API
+  type String // EMAIL|API
   emailToken String? @unique
 
-  //validation
   valid Boolean @default(true)
-  expiration DateTime 
+  expiration DateTime
 
   userId Int
   user User @relation(fields: [userId], references: [id])
@@ -56,7 +55,7 @@ model Tweet {
   content String
   image String?
 
-  impressions Int @default(0)
+  impression Int @default(0)
 
   userId Int
   user User @relation(fields: [userId], references: [id])
